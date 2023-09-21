@@ -1,0 +1,33 @@
+ALGORITHM Dot_Product_Function
+VAR
+    n:INTEGER;//nombre de vecteurs pair
+    v1,v2:ARRAY[1..100]OF REAL
+    j,j:INTEGER
+ FUNCTION Calculate_Dot_Product (V1,v2:ARRAY[1..100]OF REAL,size:INTEGER) : INTEGER
+ VAR
+    ps:REAL;
+    k:INTEGER
+ BEGIN
+    FOR k FROM 1 TO size STEP step  DO
+        ps:=ps+(v1[k]*v2[k])
+    END_FOR
+    RETURN ps ;
+ END FUNCTION
+BEGIN
+  read(n);
+  FOR i FROM 1 TO n STEP  DO
+  read(size);
+   FOR j FROM 1 TO size STEP   DO
+    read(v1[j])
+   END_FOR
+    FOR j FROM 1 TO size STEP   DO
+    read(v2[j])
+   END_FOR
+    ps:=Calculate_Dot_Product(v1,v2,size)
+    IF (ps=0) THEN
+        write("les vecteurs v1 et v2 sont orthogonal")
+    ELSE
+        write ("les vecteurs v1 et v2 not orthogonal")
+    END_IF
+  END_FOR
+END

@@ -1,0 +1,36 @@
+ALGORITHM algorithm_SET_SUM
+VAR
+  tab2, tab1:ARRAY_OF INTEGER[5];
+  i,j,somme:INTEGER;
+  num:BOOLEAN;
+BEGIN
+    tab1:={1,3,5,7,9}
+    tab2:={5,6,7,2,8}
+    i:=0;j:=0;somme:=0;num:=false
+    FOR i FROM 0 TO tab1.length-1 STEP1  DO
+    num:=faux;
+        FOR j FROM 0 TO tab2.length-1 STEP1  DO
+          IF (tab1[i]=tab2[j]) THEN
+            num:=true
+          END_IF
+        END_FOR
+        IF (num=faux) THEN
+          somme=somme+tab1[i];
+        END_IF       
+    END_FOR
+    //2 nd instruction
+    FOR j FROM 0 TO tab2.length-1 STEP1  DO
+        FOR i FROM 0 TO tab1.length-1 STEP1  DO
+        num=faux;
+          IF (tab2[j]=tab1[i]) THEN
+            num:=true;
+          END_IF
+        END_FOR
+        IF (num=faux) THEN
+          somme= somme+tab2[j];
+        END_IF      
+    END_FOR
+    WRITE("somme="somme) 
+
+   
+END
